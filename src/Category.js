@@ -1,10 +1,21 @@
 import React from 'react';
 
-const Category = () => {
+const Category = ({ filterCategories, categories }) => {
   return (
-    <main>
-      <h3>Category component</h3>
-    </main>
+    <div>
+      {
+        categories.map((category, index) => {
+          return (
+            <button 
+              key={index}
+              onClick={() => filterCategories(category)}
+            >
+              {category}
+            </button>
+          )
+        })
+      }
+    </div>
   )
 }
 
