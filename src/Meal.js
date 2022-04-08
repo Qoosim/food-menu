@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Menu = ({ meals }) => {
+  const [readMore, setReadMore] = useState(false);
 
   const priceLists = [
     12.20,
@@ -16,19 +17,19 @@ const Menu = ({ meals }) => {
   }
 
   return (
-    <div>
+    <div className="grid grid-cols-2 grid-flow-row gap-4">
       {
         meals.map((meal) => {
           const { idCategory, strCategory, strCategoryThumb, strCategoryDescription } = meal;
           return (
-            <article key={idCategory}>
+            <article key={idCategory} className="flex min-h-full">
               <img src={strCategoryThumb} alt={strCategory} />
               <div>
                 <div>
                   <h3>{strCategory}</h3>
                   <h3>${randomPrice()}</h3>
                 </div>
-                <p>{strCategoryDescription}</p>
+                    <p>{strCategoryDescription.slice(0, 120) + '... '}</p>
               </div>
             </article>
           )

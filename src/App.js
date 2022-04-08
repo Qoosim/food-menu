@@ -48,7 +48,7 @@ function App() {
   }
 
   return (
-    <main>
+    <main className="container mx-auto w-4/5">
       <section>
         <div>
           <h2>Our Meal</h2>
