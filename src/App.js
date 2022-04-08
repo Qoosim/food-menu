@@ -21,7 +21,7 @@ function App() {
     strCategoryThumb: ''
   }]);
 
-  const [categories, setCategories] = useState(allCategories);
+  const [categories] = useState(allCategories); 
 
   const fetchFromApi = async () => {
     try {

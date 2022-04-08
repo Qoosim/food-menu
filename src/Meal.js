@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const Menu = ({ meals }) => {
-  const [readMore, setReadMore] = useState(false);
 
   const priceLists = [
     12.20,
