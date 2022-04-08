@@ -13,7 +13,14 @@ function App() {
     strCategoryDescription: '',
     strCategoryThumb: ''
   }]);
-  console.log(meals);
+
+  const [filterMeal, setFilterMeal] = useState([{
+    idCategory: '',
+    strCategory: '',
+    strCategoryDescription: '',
+    strCategoryThumb: ''
+  }]);
+
   const [categories, setCategories] = useState(allCategories);
 
   const fetchFromApi = async () => {
@@ -21,8 +28,9 @@ function App() {
       const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
       const data = await response.json();
       setMeals(data.categories);
-    } catch (err) {
-      throw new Error (err);
+      setFilterMeal(data.categories);
+    }catch (err) {
+      throw Error (err);
     }
   }
   
@@ -32,13 +40,12 @@ function App() {
 
   const filterCategories = (category) => {
     if (category === 'all') {
-      return setMeals(meals);
+      return setFilterMeal(meals);
     }
 
     let mealCategories = meals.filter((meal) => meal.strCategory === category)
-    setMeals(mealCategories);
+    setFilterMeal(mealCategories);
   }
-
 
   return (
     <main>
@@ -48,7 +55,7 @@ function App() {
           <div></div>
         </div>
         <Category filterCategories={filterCategories} categories={categories} />
-        <Meal meals={meals} />
+        <Meal meals={filterMeal} />
       </section>
     </main>
   );
