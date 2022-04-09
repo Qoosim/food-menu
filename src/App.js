@@ -55,7 +55,7 @@ function App() {
     <main className="container mx-auto my-8 px-8">
       <section>
         <div className="flex flex-col place-items-center">
-          <h2 className="font-roboto font-bold text-5xl py-2">Our Meal</h2>
+          <h2 className="font-roboto font-bold text-5xl py-2">Our Meals</h2>
           <div className="w-24 border-2 border-yellow-600"></div>
         </div>
         <Category
