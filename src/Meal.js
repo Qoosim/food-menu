@@ -16,19 +16,22 @@ const Menu = ({ meals }) => {
   }
 
   return (
-    <div className="grid grid-cols-2 grid-flow-row gap-4">
+    <div className="grid grid-cols-2 grid-flow-row gap-8 pb-8">
       {
         meals.map((meal) => {
           const { idCategory, strCategory, strCategoryThumb, strCategoryDescription } = meal;
           return (
             <article key={idCategory} className="flex min-h-full">
-              <img src={strCategoryThumb} alt={strCategory} />
+              <img
+                src={strCategoryThumb}
+                alt={strCategory}
+                className="mr-8 border-2 border-yellow-600 rounded" />
               <div>
-                <div>
-                  <h3>{strCategory}</h3>
-                  <h3>${randomPrice()}</h3>
+                <div className="flex justify-between border-b-2 border-dotted border-orange-300 pb-2">
+                  <h3 className="font-bold font-mont">{strCategory}</h3>
+                  <h3 className="font-roboto font-bold text-yellow-600">${randomPrice()}</h3>
                 </div>
-                    <p>{strCategoryDescription.slice(0, 120) + '... '}</p>
+                <p className="mt-2 font-pt-sans text-lg">{strCategoryDescription.slice(0, 120) + '... '}</p>
               </div>
             </article>
           )

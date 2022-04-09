@@ -21,7 +21,7 @@ function App() {
     strCategoryThumb: ''
   }]);
 
-  const [categories] = useState(allCategories); 
+  const [categories, setCategories] = useState(allCategories); 
 
   const fetchFromApi = async () => {
     try {
@@ -47,14 +47,22 @@ function App() {
     setFilterMeal(mealCategories);
   }
 
+  const handleCategories = (category) => {
+    setCategories(category);
+  }
+
   return (
-    <main className="container mx-auto w-4/5">
+    <main className="container mx-auto my-8 px-8">
       <section>
-        <div>
-          <h2>Our Meal</h2>
-          <div></div>
+        <div className="flex flex-col place-items-center">
+          <h2 className="font-roboto font-bold text-5xl py-2">Our Meal</h2>
+          <div className="w-24 border-2 border-yellow-600"></div>
         </div>
-        <Category filterCategories={filterCategories} categories={categories} />
+        <Category
+          filterCategories={filterCategories}
+          categories={categories}
+          onChangeCategory={handleCategories}
+        />
         <Meal meals={filterMeal} />
       </section>
     </main>
