@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Category = ({ filterCategories, categories, onChangeCategory }) => {
-  const [mealCategories, setMealCategories] = useState('default');
+  const [mealCategories] = useState('default');
 
   const handleChange = (e) => {
     onChangeCategory(e.target.value);
